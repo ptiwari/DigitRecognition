@@ -6,7 +6,7 @@ This will load the default training model saved in mnist-model.h5, and predict t
 
 <b> Training and Testing the Model </b><br/>
 The training file is mnistcnn.py. To train the model, use following command<br>
-python mnistcnn.py<br/>
+<I>python mnistcnn.py</I><br/>
 
 After training is complete the model is saved in minst-mode.h5. </br>
 
