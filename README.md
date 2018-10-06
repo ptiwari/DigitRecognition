@@ -1,5 +1,5 @@
 # DigitRecognition
-<b> Quickly Run Inference with Defualt Model and Image File </b>
+<b> Quickly Run Inference with Defualt Model and Image File </b><br/>
 This package come with the trained and saved model. If you just want to try, use following command:<br/>
 <b>python inference.py </b><br/> <br/>
 This will load the default training model saved in mnist-model.h5, and predict the label of img_1.jpg file. After predicting the label, the inference plot the image. The image is displayed for 2 seconds and automatically closes.
