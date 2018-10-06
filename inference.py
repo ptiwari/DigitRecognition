@@ -4,6 +4,7 @@ import numpy as np
 import sys
 import os
 import tarfile
+import matplotlib.pyplot as plt
  
 #Load Model file
 def loadModel(modelFile):
@@ -36,6 +37,13 @@ def getModelFile():
 		except:
 			print("Can't Open tar file. Please traing the model")
 	return fileName
+
+def showImage(fileName):
+	img = image.load_img(fileName) # images are color images
+	plt.gca().clear()
+	plt.imshow(img);
+	plt.show();
+
 def main():
 	
 	if len(sys.argv)<2:
@@ -50,6 +58,8 @@ def main():
 	prob,img_class = predict(model,img);
 	classname = img_class[0]
 	print("Predicted numer is: ",classname," and probability is:",prob[0,classname])
+	print("The image is")
+	showImage(imgFile)
 
 if __name__== "__main__":
   main()
