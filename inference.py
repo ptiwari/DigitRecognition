@@ -26,9 +26,8 @@ def predict(model,img):
 
 #Check if mnist-model.h5 exists
 # If not open the tar file
-def getModelFile():
-	exists = os.path.isfile('minst-model.h5')
-	fileName = 'mnist-model.h5'
+def extractModelFile(modelFile):
+	exists = os.path.isfile('mnist-model.h5')
 	if ~exists:
 		try:
 			tar = tarfile.open("mnist-model.h5.tar.gz")
@@ -36,7 +35,7 @@ def getModelFile():
 			tar.close()
 		except:
 			print("Can't Open tar file. Please traing the model")
-	return fileName
+	
 # Display the image for 2 seconds
 def showImage(fileName):
 	img = image.load_img(fileName) # images are color images
@@ -54,7 +53,8 @@ def main():
 	else:
 		imgFile = sys.argv[1];
 	print("Predicting class for",imgFile);
-	modelFile = getModelFile();
+	modelFile = 'mnist-model.h5'
+	extractModelFile(modelFile);
 	model = loadModel(modelFile)
 	img = loadImage(imgFile)
 	prob,img_class = predict(model,img);
