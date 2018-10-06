@@ -2,6 +2,8 @@ from keras.models import  load_model
 from keras.preprocessing import image
 import numpy as np
 import sys
+import os
+import tarfile
  
 #Load Model file
 def loadModel(modelFile):
@@ -21,15 +23,29 @@ def predict(model,img):
 	prob = model.predict(img);
 	return prob,img_class
 
+#Check if mnist-model.h5 exists
+# If not open the tar file
+def getModelFile():
+	exists = os.path.isfile('minst-model.h5')
+	fileName = 'mnist-model.h5'
+	if ~exists:
+		try:
+			tar = tarfile.open("mnist-model.h5.tar.gz")
+			tar.extractall()
+			tar.close()
+		except:
+			print("Can't Open tar file. Please traing the model")
+	return fileName
 def main():
 	
 	if len(sys.argv)<2:
 		print("No input image file specified. Using default img1.jpg.")
-		imgFile = 'img1.jpg';
+		imgFile = 'img_1.jpg';
 	else:
 		imgFile = sys.argv[1];
 	print("Predicting class for",imgFile);
-	model = loadModel('mnist-model.h5')
+	modelFile = getModelFile();
+	model = loadModel(modelFile)
 	img = loadImage(imgFile)
 	prob,img_class = predict(model,img);
 	classname = img_class[0]
