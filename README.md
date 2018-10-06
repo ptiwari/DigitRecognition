@@ -11,5 +11,5 @@ The training file is mnistcnn.py. To train the model, use following command<br>
 After training is complete the model is saved in minst-mode.h5. </br>
 
 <b> Inference </b><br/>
-Your can use python inference.py <Raw Image File Name> to run the inference. The folder testSample contains the raw image file. You can issue following commands for inference:
-python inference.py testSample/img_67.jpg 
+Your can use python inference.py <Raw Image File Name> to run the inference. The folder testSample contains the raw image file. You can issue following commands for inference:<br/>
+  <I> python inference.py testSample/img_67.jpg </I>
