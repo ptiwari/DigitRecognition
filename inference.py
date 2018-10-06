@@ -28,6 +28,7 @@ def predict(model,img):
 # If not open the tar file
 def extractModelFile(modelFile):
 	exists = os.path.isfile('mnist-model.h5')
+	print("Exists:",exists)
 	if ~exists:
 		try:
 			tar = tarfile.open("mnist-model.h5.tar.gz")
