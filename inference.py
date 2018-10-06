@@ -37,7 +37,7 @@ def getModelFile():
 		except:
 			print("Can't Open tar file. Please traing the model")
 	return fileName
-# Display the image for 5 seconds
+# Display the image for 2 seconds
 def showImage(fileName):
 	img = image.load_img(fileName) # images are color images
 	plt.gca().clear()
